@@ -59,9 +59,9 @@ export const getClimateData = async (
   };
 
   const monthlyTemp: MonthlyData[] = 
-    await getData('mavg', 'pr', 1980, 1999, 'usa') as MonthlyData[];
+    await getData('mavg', 'tas', 1980, 1999, 'usa') as MonthlyData[];
   const annualTemp: AnnualData[] = 
-    await getData('annualavg', 'pr', 1980, 1999, 'usa') as AnnualData[];
+    await getData('annualavg', 'tas', 1980, 1999, 'usa') as AnnualData[];
   
   const tempData: CompleteData = {
     ...monthlyTemp[0],
