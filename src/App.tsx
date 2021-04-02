@@ -29,9 +29,8 @@ function App() {
   };
 
   const showChart = (precipData: number[], tempData: number[]) => {
-    const ctx = ((chartCanvas.current as unknown) as HTMLCanvasElement).getContext(
-      '2d'
-    ) as CanvasRenderingContext2D;
+    const ctx = ((chartCanvas.current as unknown) as HTMLCanvasElement)
+      .getContext('2d') as CanvasRenderingContext2D;
 
     makeChart(ctx, precipData, tempData);
   };
