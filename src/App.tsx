@@ -4,6 +4,7 @@ import './App.css';
 import { makeChart } from './climatograph';
 
 import { ClimateData, getClimateData } from './climateAPI';
+import countryCodes from './countryISO';
 
 function App() {
   const [climateData, setClimateData] = useState<ClimateData>(
@@ -45,9 +46,12 @@ function App() {
       <br></br>
 
       <select className='bg-gray-800 rounded-md p-2 my-4'>
-        <option>United States</option>
-        <option>U</option>
-        <option>Germany</option>
+        {
+          Object.keys(countryCodes)
+          .map((country, i) => 
+            <option key={i}>{country}</option>
+          )
+        }
       </select>
 
       <br></br>
