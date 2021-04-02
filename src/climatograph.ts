@@ -48,6 +48,10 @@ export const makeChart = async (
             id: 'P',
             type: 'linear',
             position: 'left',
+            scaleLabel: {
+              display: true,
+              labelString: 'Monthly Average Precipitation (mm)',
+            },
             ticks: {
               suggestedMin: 0,
               suggestedMax: 100,
@@ -58,6 +62,10 @@ export const makeChart = async (
             id: 'T',
             type: 'linear',
             position: 'right',
+            scaleLabel: {
+              display: true,
+              labelString: 'Monthly Average Temperature (C)',
+            },
             ticks: {
               suggestedMin: -15,
               suggestedMax: 25,
@@ -65,6 +73,13 @@ export const makeChart = async (
             },
           },
         ],
+        xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Month',
+            }
+          }
+        ]
       },
     },
   });
