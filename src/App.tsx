@@ -29,17 +29,38 @@ function App() {
   };
 
   const showChart = (precipData: number[], tempData: number[]) => {
-    const ctx = ((chartCanvas.current as unknown) as HTMLCanvasElement)
-      .getContext('2d') as CanvasRenderingContext2D;
+    const ctx = ((chartCanvas.current as unknown) as HTMLCanvasElement).getContext(
+      '2d'
+    ) as CanvasRenderingContext2D;
 
     makeChart(ctx, precipData, tempData);
   };
 
   return (
     <div className="App">
-      <div className="">Hello!</div>
-      <button onClick={async () => await updateData()}>Click</button>
-      <canvas className="w-5/6" ref={chartCanvas}></canvas>
+      <h2 className='text-5xl p-8'
+      >Climatograph Generator</h2>
+
+      Pick the country:
+      <br></br>
+
+      <select className='bg-gray-800 rounded-md p-2 my-4'>
+        <option>United States</option>
+        <option>U</option>
+        <option>Germany</option>
+      </select>
+
+      <br></br>
+
+      <button 
+      className={'border-gray-800 border-2 p-3 rounded-md ' +
+      'hover:bg-gray-800 transition ease-in-out'}
+      onClick={async () => await updateData()}
+      >Generate Climatograph</button>
+
+      <div className='w-3/4 mx-auto my-4'>
+        <canvas ref={chartCanvas}></canvas>
+      </div>
     </div>
   );
 }

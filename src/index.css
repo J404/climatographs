@@ -29137,6 +29137,7 @@ video {
 
 html {
   background-color: #3c3c3d;
+  color: white;
 }
 
 @media (min-width: 640px) {
