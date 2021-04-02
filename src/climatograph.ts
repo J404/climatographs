@@ -12,17 +12,34 @@ export const makeChart = async (
       datasets: [
         {
           label: 'Monthly Average Precipitation (mm)',
+          backgroundColor: 'rgba(70, 135, 240, 0.5)',
           yAxisID: 'P',
           data: precipData,
+          order: 2,
         },
         {
           type: 'line',
           label: 'Monthly Average Temperature (C)',
+          backgroundColor: 'rgba(230, 90, 44, 0.5)',
           yAxisID: 'T',
           data: tempData,
+          order: 1,
         },
       ],
-      labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+      labels: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
     },
     options: {
       scales: {
