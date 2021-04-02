@@ -1,12 +1,21 @@
 import { Chart } from 'chart.js';
 
+let myChart: Chart;
+
 export const makeChart = async (
   ctx: CanvasRenderingContext2D,
   precipData: number[],
   tempData: number[]
 ) => {
+  // delete old chart if necessary
+  if (myChart) {
+    try {
+      myChart.destroy();
+    } catch (e) {}
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const myChart = new Chart(ctx, {
+  myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       datasets: [
@@ -73,13 +82,14 @@ export const makeChart = async (
             },
           },
         ],
-        xAxes: [{
+        xAxes: [
+          {
             scaleLabel: {
               display: true,
               labelString: 'Month',
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
     },
   });
