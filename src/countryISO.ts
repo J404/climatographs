@@ -14,7 +14,6 @@ const countryCodes: CountryList = {
   'Argentina': 'ARG', 
   'Armenia': 'ARM', 
   'American Samoa': 'ASM', 
-  'Antarctica': 'ATA', 
   'French Southern Territories': 'ATF', 
   'Antigua and Barbuda': 'ATG', 
   'Australia': 'AUS', 
