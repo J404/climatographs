@@ -1,18 +1,24 @@
 import { Chart } from "chart.js";
 
-export const makeChart = async (ctx: CanvasRenderingContext2D) => {
+export const makeChart = async (
+  ctx: CanvasRenderingContext2D,
+  precipData: number[],
+  tempData: number[],
+  ) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       datasets: [{
         label: 'Monthly Average Precipitation (mm)',
-        data: [0, 10, 20, 30, 40],
+        data: precipData,
       }, {
         type: 'line',
         label: 'Monthly Average Temperature (C)',
-        data: [5, 7, 6, 12, 15],
+        data: tempData,
       }],
-      labels: ['J', 'F', 'M', 'A', 'M']
+      labels: ['J', 'F', 'M', 'A', 'M', 'J', 
+      'J', 'A', 'S', 'O', 'N', 'D']
     }
   });
 }
