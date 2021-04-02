@@ -1,4 +1,6 @@
-const countryCodes = {
+type CountryList = { [country: string]: string };
+
+const countryCodes: CountryList = {
   'United States': 'USA',
   'Aruba': 'ABW', 
   'Afghanistan': 'AFG', 

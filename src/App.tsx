@@ -11,6 +11,7 @@ function App() {
     ({} as unknown) as ClimateData
   );
   const chartCanvas = useRef<HTMLCanvasElement>(null);
+  const countrySelect = useRef<HTMLSelectElement>(null);
 
   const didMount = useRef(false);
 
@@ -25,7 +26,11 @@ function App() {
   }, [climateData]);
 
   const updateData = async () => {
-    const newData = await getClimateData(1980, 1999, 'bra');
+    const country = (countrySelect.current as unknown as HTMLSelectElement)
+      .value;
+    const iso3 = countryCodes[country];
+
+    const newData = await getClimateData(1980, 1999, iso3);
     setClimateData(newData);
   };
 
@@ -45,7 +50,8 @@ function App() {
       Pick the country:
       <br></br>
 
-      <select className='bg-gray-800 rounded-md p-2 my-4'>
+      <select className='bg-gray-800 rounded-md p-2 my-4'
+      ref={countrySelect}>
         {
           Object.keys(countryCodes)
           .map((country, i) => 
