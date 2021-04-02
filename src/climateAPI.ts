@@ -27,20 +27,20 @@ export const getPrecipData = async (
     `http://climatedataapi.worldbank.org/climateweb/rest/v1/country/mavg/pr/${start}/${end}/${country}`
   );
 
-  const monthlyData: MonthlyData = ((
+  const monthlyData: MonthlyData[] = await ((
     await monthlyResponse
-  ).json() as unknown) as MonthlyData;
+  ).json() as unknown) as MonthlyData[];
 
   const annualResponse = await fetch(
     `http://climatedataapi.worldbank.org/climateweb/rest/v1/country/annualavg/pr/${start}/${end}/${country}`
   );
 
-  const annualData: AnnualData = ((
+  const annualData: AnnualData[] = await ((
     await annualResponse
-  ).json() as unknown) as AnnualData;
-
+  ).json() as unknown) as AnnualData[];
+  
   return {
-    ...monthlyData,
-    annualData: annualData.annualData[0],
+    ...monthlyData[0],
+    annualData: annualData[0].annualData[0],
   };
 };
