@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js';
+import { Chart, ChartDataSets } from 'chart.js';
 
 let myChart: Chart;
 
@@ -7,11 +7,16 @@ export const makeChart = async (
   precipData: number[],
   tempData: number[]
 ) => {
-  // delete old chart if necessary
+  // update chart's data if it exists already
   if (myChart) {
-    try {
-      myChart.destroy();
-    } catch (e) {}
+    ((myChart.data
+      .datasets as unknown) as ChartDataSets[])[0].data = precipData;
+
+    ((myChart.data.datasets as unknown) as ChartDataSets[])[1].data = tempData;
+
+    myChart.update();
+
+    return;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
