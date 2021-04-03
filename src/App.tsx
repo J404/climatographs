@@ -68,7 +68,7 @@ function App() {
       onClick={async () => await updateData()}
       >Generate Climatograph</button>
 
-      <div className='w-3/4 mx-auto my-4'>
+      <div className='w-3/4 mx-auto my-4 overflow-x-auto'>
         <canvas ref={chartCanvas}></canvas>
       </div>
     </div>
